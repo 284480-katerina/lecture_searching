@@ -20,10 +20,31 @@ def read_data(file_name, field):
 
     return data[field]
 
+def linear_search(sequence, number):
+    positions = []
+    count = 0
+
+    for i in range(len(sequence)):
+        if sequence[i] == number:
+            positions.append(i)
+            count += 1
+
+    return {
+        "positions": positions,
+        "count": count
+    }
+
+
+
+
 
 def main():
     sequential_data = read_data("sequential.json", "unordered_numbers")
-    pass
+    print(sequential_data)
+
+    linear_function = linear_search(seq_data, number)
+    print(linear_function)
+
 
 
 if __name__ == '__main__':
