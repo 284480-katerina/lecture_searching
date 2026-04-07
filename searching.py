@@ -34,16 +34,38 @@ def linear_search(sequence, number):
         "count": count
     }
 
+def binary_search(number_list, number):
+
+    leva = 0
+    prava = len(number_list) - 1
+
+    while leva <= prava:
+
+        prostredek = (leva + prava) // 2
+
+        if number_list[prostredek] == number:
+            return prostredek
+        elif number_list[prostredek] < number:
+            leva = prostredek + 1
+        else:
+            prava = prostredek - 1
+
+    return None
 
 
 
 
 def main():
-    sequential_data = read_data("sequential.json", "unordered_numbers")
+    sequential_data = read_data("sequential.json", "ordered_numbers")
     print(sequential_data)
 
-    linear_function = linear_search(seq_data, number)
+    number = 14
+
+    linear_function = linear_search(sequential_data, number)
     print(linear_function)
+
+    result = binary_search(sequential_data, number)
+    print(result)
 
 
 
